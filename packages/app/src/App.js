@@ -1,5 +1,13 @@
+import React from 'react'
+import GlobalComponents from './containers/GlobalComponents'
+
 function App() {
-  return <div className='App'>app</div>
+  return (
+    <>
+      <GlobalComponents />
+      <div className='App'>app</div>
+    </>
+  )
 }
 
 export default App
