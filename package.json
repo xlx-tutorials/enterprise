@@ -6,6 +6,7 @@
   "author": "yokiyuqian@gmail.com <yokiyuqian@gmail.com>",
   "license": "MIT",
   "scripts": {
+    "new-version": "lerna version --conventional-commits",
     "start:app": "yarn workspace app run start",
     "dev:backend": "yarn workspace backend run develop"
   },
