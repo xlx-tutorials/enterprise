@@ -8,6 +8,7 @@
   "scripts": {
     "new-version": "lerna version --conventional-commits",
     "start:app": "yarn workspace app run start",
+    "build:app": "yarn workspace app run build",
     "dev:backend": "yarn workspace backend run develop"
   },
   "devDependencies": {
