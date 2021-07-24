@@ -31,11 +31,25 @@ const globalCSS = css`
     text-decoration: none;
     background: none;
     border: none;
+    cursor: pointer;
   }
 `
 
 function GlobalCSS() {
-  return <Global styles={globalCSS} />
+  return (
+    <Global
+      styles={[
+        globalCSS,
+        (theme) => ({
+          body: {
+            color: theme.textColor.primary,
+            backgroundColor: theme.colors.background,
+            fontSize: theme.fontSize.body,
+          },
+        }),
+      ]}
+    />
+  )
 }
 
 export default GlobalCSS
