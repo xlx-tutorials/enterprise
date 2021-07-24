@@ -42,7 +42,7 @@ function GlobalCSS() {
         globalCSS,
         (theme) => ({
           body: {
-            color: theme.textColor.primary,
+            color: theme.textColor.base,
             backgroundColor: theme.colors.background,
             fontSize: theme.fontSize.body,
           },

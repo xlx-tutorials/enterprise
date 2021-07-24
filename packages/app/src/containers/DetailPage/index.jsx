@@ -1,5 +1,7 @@
-import Page from 'components/Page'
+import Logo from 'components/Logo'
+import { Page } from 'components/Page'
 import Header from 'containers/Header'
+import { HeaderTitle } from 'containers/Header/components/styled'
 
 // components prop
 // render prop
@@ -7,7 +9,13 @@ import Header from 'containers/Header'
 function DetailPage() {
   return (
     <Page className='DetailPage'>
-      <Header />
+      <Header>
+        <Logo />
+        <HeaderTitle style={{ marginRight: 'auto' }}>资源库</HeaderTitle>
+        {/* <Search />
+        <SelectScopes />
+        <HeaderAvatar /> */}
+      </Header>
     </Page>
   )
 }
