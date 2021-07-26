@@ -1,5 +1,8 @@
+import { css } from '@emotion/react'
+import styled from '@emotion/styled'
 import { Page } from 'components/Page'
 import { Select } from 'components/Select'
+import { Button } from './components/Button'
 /* 
   list: [
     {name: 'Apple', value: {,}}
@@ -9,6 +12,12 @@ import { Select } from 'components/Select'
     {id: 'Apple'}
   ]
 */
+
+const MyButton = styled.button`
+  background: lavender;
+  padding: 8px 12px;
+  border-radius: 8px;
+`
 
 function DemoPage() {
   // const [val, setVal] = useState()
@@ -23,6 +32,12 @@ function DemoPage() {
         <Select.Option value='apple'>Apple</Select.Option>
         <Select.Option value='banana'>Banana</Select.Option>
       </Select>
+
+      <div>
+        <Button as={MyButton} href='http://baidu.com'>
+          Click Me
+        </Button>
+      </div>
     </Page>
   )
 }
