@@ -1,5 +1,5 @@
 import { Page } from 'components/Page'
-import Select from 'components/Select'
+import { Select } from 'components/Select'
 /* 
   list: [
     {name: 'Apple', value: {,}}
@@ -11,21 +11,17 @@ import Select from 'components/Select'
 */
 
 function DemoPage() {
+  // const [val, setVal] = useState()
+
   return (
     <Page
       className='DemoPage'
       style={{
         backgroundColor: 'white',
       }}>
-      <Select defaultValue='apple' onChange={(value) => console.log(value)}>
-        <Select.Input css />
-
-        <Select.Options>
-          <Select.Option value='apple'>Apple</Select.Option>
-          <Select.Option value='banana'>
-            <span>Banana</span>
-          </Select.Option>
-        </Select.Options>
+      <Select defaultValue='apple' onChange={(val) => console.log(val)}>
+        <Select.Option value='apple'>Apple</Select.Option>
+        <Select.Option value='banana'>Banana</Select.Option>
       </Select>
     </Page>
   )

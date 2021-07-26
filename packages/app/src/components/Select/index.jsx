@@ -1,71 +1,18 @@
-import { css } from '@emotion/react'
-import { useTheme } from 'contexts/ThemeProvider'
-import React, { useRef, useState } from 'react'
-import { RiArrowDropDownLine, RiArrowDropUpLine } from 'react-icons/ri'
-import { useClickAway } from 'react-use'
+import useAutoControlledState from 'hooks/useAutoControlledState'
+import React, { useContext, useState } from 'react'
 
-function Input({ children, open, setOpen, ...props }) {
-  const { theme } = useTheme()
+const SelectContext = React.createContext()
 
-  return (
-    <div
-      className='Input'
-      css={css`
-        padding: 8px 20px;
-        background: ${theme.colors.black[6]};
-        border-radius: 8px;
-        border: ${theme.borders.base};
-        display: flex;
-        align-items: center;
-        min-width: 120px;
-      `}
-      onClick={() => setOpen(!open)}
-      {...props}>
-      {children}{' '}
-      <span
-        style={{ marginLeft: 'auto', display: 'flex', alignItems: 'center' }}>
-        {open ? <RiArrowDropUpLine /> : <RiArrowDropDownLine />}
-      </span>
-    </div>
-  )
-}
+function Option({ value, children, onClick = () => {}, ...props }) {
+  const context = useContext(SelectContext)
+  if (context === undefined)
+    throw new Error('Select.Option must be used within Select')
 
-function Options({
-  selectedValue,
-  setSelectedValue,
-  onChange,
-  children,
-  open,
-  setOpen,
-  ...props
-}) {
-  if (!open) return null
-  return (
-    <div className='Options' {...props}>
-      {React.Children.map(children, (child) =>
-        React.cloneElement(child, {
-          selectedValue,
-          setSelectedValue,
-          onChange,
-        })
-      )}
-    </div>
-  )
-}
+  const { selectedValue, setSelectedValue } = context
 
-function Option({
-  selectedValue,
-  setSelectedValue,
-  children,
-  value,
-  onChange = () => {},
-  onClick = () => {},
-  ...props
-}) {
-  function handleClick(ev) {
+  function handleClick() {
     setSelectedValue(value)
-    onClick(ev, value)
-    onChange(value)
+    onClick(value)
   }
 
   return (
@@ -75,59 +22,38 @@ function Option({
   )
 }
 
-function Select({ defaultValue, onChange, children, ...props }) {
-  const { theme } = useTheme()
-  const [selectedValue, setSelectedValue] = useState(defaultValue)
-  const [open, setOpen] = useState(false)
-
-  React.Children.toArray(children).props.value
-
-  const domRef = useRef()
-
-  useClickAway(domRef, () => {
-    setOpen(false)
+function Select({
+  children,
+  value,
+  defaultValue,
+  onChange = () => {},
+  ...props
+}) {
+  const [selectedValue, setSelectedValue] = useAutoControlledState({
+    defaultValue,
+    value,
+    onChange,
   })
 
-  const formatedChildren = React.Children.toArray(
-    children[1].props.children
-  ).map((child) => child.props)
+  const contextValue = {
+    selectedValue,
+    setSelectedValue,
+  }
 
-  const selectedInput = formatedChildren.find(
-    (child) => child.value === selectedValue
-  ).children
+  const selectedInput = React.Children.toArray(children)
+    .map((child) => child.props)
+    .find((child) => child.value === selectedValue)?.children
 
   return (
-    <div
-      className='Select'
-      css={css`
-        display: inline-flex;
-        flex-direction: column;
-        align-items: center;
-      `}
-      ref={domRef}
-      {...props}>
-      {React.Children.map(children, (child) =>
-        React.cloneElement(child, {
-          // Input
-          ...(child.type.name === Input.name && {
-            children: selectedInput,
-          }),
-          // Options
-          ...(child.type.name === Options.name && {
-            selectedValue,
-            setSelectedValue,
-            onChange,
-          }),
-          open,
-          setOpen,
-        })
-      )}
-    </div>
+    <SelectContext.Provider value={contextValue}>
+      <div className='Select' {...props}>
+        <div className='input'>{selectedInput}</div>
+        <div className='options'>{children}</div>
+      </div>
+    </SelectContext.Provider>
   )
 }
 
-Select.Input = Input
-Select.Options = Options
 Select.Option = Option
 
-export default Select
+export { Select }
