@@ -1,4 +1,3 @@
-import { Demo } from 'components/Demo'
 import { Page } from 'components/Page'
 import Select from 'components/Select'
 /* 
@@ -18,7 +17,16 @@ function DemoPage() {
       style={{
         backgroundColor: 'white',
       }}>
-      <Demo>demo</Demo>
+      <Select defaultValue='apple' onChange={(value) => console.log(value)}>
+        <Select.Input css />
+
+        <Select.Options>
+          <Select.Option value='apple'>Apple</Select.Option>
+          <Select.Option value='banana'>
+            <span>Banana</span>
+          </Select.Option>
+        </Select.Options>
+      </Select>
     </Page>
   )
 }
