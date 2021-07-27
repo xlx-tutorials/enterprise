@@ -6,12 +6,15 @@
   "author": "yokiyuqian@gmail.com <yokiyuqian@gmail.com>",
   "license": "MIT",
   "scripts": {
+    "preinstall": "husky install",
     "new-version": "lerna version --conventional-commits",
     "start:app": "yarn workspace app run start",
     "build:app": "yarn workspace app run build",
-    "dev:backend": "yarn workspace backend run develop"
+    "dev:backend": "yarn workspace backend run develop",
+    "test": "echo test"
   },
   "devDependencies": {
+    "husky": "^7.0.1",
     "lerna": "^4.0.0"
   },
   "workspaces": [
