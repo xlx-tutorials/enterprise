@@ -16,7 +16,7 @@ export default function useAutoControlledState({
 
   // trigger onChange when defaultValue state change
   useMountedEffect(() => {
-    if (defaultValue !== undefined) onChange(state)
+    if (value === undefined) onChange(state)
   }, [state])
 
   // trigger onChange when value state change

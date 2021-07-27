@@ -1,5 +1,7 @@
 import { css } from '@emotion/react'
 import styled from '@emotion/styled'
+import Checkbox from 'components/Checkbox'
+import { useCheckbox } from 'components/Checkbox/hooks'
 import { Page } from 'components/Page'
 import { Select } from 'components/Select'
 import { Button } from './components/Button'
@@ -20,7 +22,7 @@ const MyButton = styled.button`
 `
 
 function DemoPage() {
-  // const [val, setVal] = useState()
+  const { bind, value, setValue, clear } = useCheckbox()
 
   return (
     <Page
@@ -37,6 +39,17 @@ function DemoPage() {
         <Button as={MyButton} href='http://baidu.com'>
           Click Me
         </Button>
+      </div>
+
+      <div style={{ margin: 20 }}>
+        <Checkbox {...bind()}>
+          <Checkbox.Option value={{ name: 'apple' }}>Apple</Checkbox.Option>
+          <Checkbox.Option value='banana'>Banana</Checkbox.Option>
+        </Checkbox>
+
+        <button type='button' onClick={clear}>
+          Clear All
+        </button>
       </div>
     </Page>
   )
