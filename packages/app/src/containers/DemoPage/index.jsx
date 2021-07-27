@@ -25,7 +25,7 @@ const MyButton = styled.button`
 
 function DemoPage() {
   const { bind, value, setValue, clear } = useCheckbox()
-  const { bind: bindToast, open, close } = useToast()
+  const { bind: bindToast } = useToast()
 
   return (
     <Page
@@ -56,12 +56,12 @@ function DemoPage() {
       </div>
 
       <Toast {...bindToast()}>Something wrong...</Toast>
-      <button type='button' onClick={() => open({ timeout: 3000 })}>
+      <button type='button' onClick={() => Toast.show()}>
         Show Toast
       </button>
-      <button type='button' onClick={close}>
+      {/* <button type='button' onClick={() => Toast.show()}>
         Close Immediately
-      </button>
+      </button> */}
     </Page>
   )
 }

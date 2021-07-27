@@ -1,9 +1,18 @@
 import { css } from '@emotion/react'
 import { useTheme } from 'contexts/ThemeProvider'
+import { useRef, useState } from 'react'
 import reactDom from 'react-dom'
 
-function Toast({ open, children }) {
+function Toast({ open, children, onOpen = () => {}, onClose = () => {} }) {
   const { theme } = useTheme()
+  const [message, setMessage] = useState(children)
+  const timerRef = useRef()
+
+  Toast.show = ({ timeout = 4000, message: showMessage } = {}) => {
+    setMessage(showMessage)
+    onOpen()
+    timerRef.current = setTimeout(onClose, timeout)
+  }
 
   if (!open) return null
   return reactDom.createPortal(
@@ -28,7 +37,7 @@ function Toast({ open, children }) {
           text-align: center;
         }
       `}>
-      <div className='toastContent'>{children}</div>
+      <div className='toastContent'>{message ?? children}</div>
     </div>,
     document.querySelector('body')
   )

@@ -19,6 +19,12 @@ function useToast(defaultOpen) {
 
   const bind = () => ({
     open: openState,
+    onClose() {
+      setOpenState(false)
+    },
+    onOpen() {
+      setOpenState(true)
+    },
   })
 
   return {

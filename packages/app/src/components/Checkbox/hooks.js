@@ -7,8 +7,6 @@ function useCheckbox(defaultValue = []) {
     setValue(undefined)
   }
 
-  console.log(value)
-
   const bind = () => ({
     value,
     onChange: setValue,
