@@ -1,0 +1,13 @@
+{
+  "name": "mock",
+  "version": "1.0.0",
+  "main": "index.js",
+  "author": "yokiyuqian@gmail.com",
+  "license": "MIT",
+  "scripts": {
+    "start": "json-server ./db.json --watch -p 5000"
+  },
+  "devDependencies": {
+    "json-server": "^0.16.3"
+  }
+}
