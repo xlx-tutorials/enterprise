@@ -4,6 +4,8 @@ import Checkbox from 'components/Checkbox'
 import { useCheckbox } from 'components/Checkbox/hooks'
 import { Page } from 'components/Page'
 import { Select } from 'components/Select'
+import Toast from 'components/Toast'
+import { useToast } from 'components/Toast/hooks'
 import { Button } from './components/Button'
 /* 
   list: [
@@ -23,6 +25,7 @@ const MyButton = styled.button`
 
 function DemoPage() {
   const { bind, value, setValue, clear } = useCheckbox()
+  const { bind: bindToast, open, close } = useToast()
 
   return (
     <Page
@@ -51,6 +54,14 @@ function DemoPage() {
           Clear All
         </button>
       </div>
+
+      <Toast {...bindToast()}>Something wrong...</Toast>
+      <button type='button' onClick={() => open({ timeout: 3000 })}>
+        Show Toast
+      </button>
+      <button type='button' onClick={close}>
+        Close Immediately
+      </button>
     </Page>
   )
 }
