@@ -1,5 +1,5 @@
 import Logo from 'components/Logo'
-import { Page } from 'components/Page'
+import { Page, PageTitle } from 'components/Page'
 import { HeaderTitle } from 'containers/Header/components/styled'
 import Header from 'containers/Header'
 import HeaderAvatar from 'containers/Header/components/HeaderAvatar'
@@ -13,6 +13,8 @@ function HomePage() {
 
   return (
     <Page className='HomePage'>
+      <PageTitle>首页</PageTitle>
+
       <Header>
         <Logo />
         <HeaderTitle>资源库</HeaderTitle>
