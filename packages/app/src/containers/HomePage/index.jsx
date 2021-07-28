@@ -1,10 +1,10 @@
 import Logo from 'components/Logo'
 import { Page, PageTitle } from 'components/Page'
-import { HeaderTitle } from 'containers/Header/components/styled'
+import ToggleTheme from 'components/ToggleTheme'
 import Header from 'containers/Header'
-import HeaderAvatar from 'containers/Header/components/HeaderAvatar'
 import Search from 'containers/Header/components/Search'
 import SelectScopes from 'containers/Header/components/SelectScopes'
+import { HeaderTitle } from 'containers/Header/components/styled'
 
 // composition pattern
 
@@ -20,7 +20,7 @@ function HomePage() {
         <HeaderTitle>资源库</HeaderTitle>
         <Search />
         <SelectScopes />
-        <HeaderAvatar />
+        <ToggleTheme />
       </Header>
     </Page>
   )

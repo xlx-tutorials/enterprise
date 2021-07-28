@@ -5,9 +5,13 @@ function Button({ children, as: As = 'button', ...props }) {
     <As
       type='button'
       css={css`
-        color: slateblue;
+        user-select: none;
+        cursor: pointer;
+
+        &:hover {
+          filter: opacity(0.6);
+        }
       `}
-      onClick={() => alert(children)}
       {...props}>
       {children}
     </As>

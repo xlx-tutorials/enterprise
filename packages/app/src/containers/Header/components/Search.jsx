@@ -1,6 +1,5 @@
 import { css } from '@emotion/react'
 import { useTheme } from 'contexts/ThemeProvider'
-import { RiArrowDropDownLine, RiArrowDropUpLine } from 'react-icons/ri'
 
 function Search() {
   const { theme } = useTheme()
@@ -29,8 +28,8 @@ function Search() {
 
         button {
           flex-shrink: 0;
-          background: ${theme.colors.primary};
-          color: ${theme.colors.white.base};
+          background: ${theme.buttons.primary.background};
+          color: ${theme.buttons.primary.textColor};
           height: 40px;
           padding: 0 18px;
           font-size: ${theme.fontSize.headline};

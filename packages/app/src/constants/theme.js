@@ -29,11 +29,20 @@ const borders = {
   button: `1px solid ${colors.black[20]}`,
 }
 
+const buttons = {
+  primary: {
+    textColor: PALETTE.white.base,
+    background: PALETTE.primary,
+  },
+}
+
 const THEME = {
+  mode: 'light',
   colors,
   textColor,
   fontSize,
   borders,
+  buttons,
 }
 
 export { THEME }

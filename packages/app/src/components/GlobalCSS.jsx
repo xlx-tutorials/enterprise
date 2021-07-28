@@ -45,6 +45,7 @@ function GlobalCSS() {
             color: theme.textColor.base,
             backgroundColor: theme.colors.background,
             fontSize: theme.fontSize.body,
+            transition: 'background-color .2s, color .2s',
           },
         }),
       ]}

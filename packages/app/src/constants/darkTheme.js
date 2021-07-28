@@ -1,9 +1,9 @@
 const { PALETTE } = require('./palette')
 
 const colors = {
-  text: PALETTE.black.base,
-  background: PALETTE.black[90],
-  block: PALETTE.white[10],
+  text: PALETTE.white.base,
+  background: PALETTE.black.base,
+  block: PALETTE.white[6],
   primary: PALETTE.primary,
   danger: PALETTE.red,
   black: PALETTE.white,
@@ -29,11 +29,20 @@ const borders = {
   button: `1px solid ${colors.black[20]}`,
 }
 
+const buttons = {
+  primary: {
+    textColor: PALETTE.white.base,
+    background: PALETTE.primary,
+  },
+}
+
 const DARK_THEME = {
+  mode: 'dark',
   colors,
   textColor,
   fontSize,
   borders,
+  buttons,
 }
 
 export { DARK_THEME }

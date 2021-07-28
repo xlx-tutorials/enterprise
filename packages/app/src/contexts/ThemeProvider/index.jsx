@@ -1,16 +1,42 @@
-import React, { useContext, useRef, useState } from 'react'
+import React, { useContext, useEffect, useRef, useState } from 'react'
+import { useDetectSystemDarkMode } from './useDetectSystemDarkMode'
 
 export const ThemeContext = React.createContext()
 
+/**
+ * @template T
+ * @param {{
+ * children: any;
+ * themes: T;
+ * defaultThemeKey: keyof T;
+ * defaultFollowSystem: boolean;
+ * }} */
 function ThemeProvider({
   children,
   themes,
   defaultThemeKey = themes && Object.keys(themes)[0],
+  defaultFollowSystem = false,
 }) {
   if (themes === undefined) throw new Error('themes prop must be provided')
 
-  const defaultTheme = themes[defaultThemeKey]
+  // 判断系统主题
+  const { isDark } = useDetectSystemDarkMode()
+
+  let defaultTheme = themes[defaultThemeKey]
+  // 如果跟随系统 默认主题为系统主题
+  if (defaultFollowSystem) {
+    defaultTheme = isDark ? themes.dark : themes.light
+  }
+
   const [theme, setTheme] = useState(defaultTheme)
+
+  // 如果跟随系统 就自动切换
+  useEffect(
+    function handleFollowSystem() {
+      if (defaultFollowSystem) setTheme(isDark ? themes.dark : themes.light)
+    },
+    [isDark]
+  )
 
   const value = {
     theme,

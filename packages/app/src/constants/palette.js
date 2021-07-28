@@ -5,7 +5,7 @@ const PALETTE = {
   red: '#FF3B30',
   lightgray: '#f6f6f6',
   get black() {
-    const base = '#333333'
+    const base = '#0f0f10'
     return {
       base,
       90: rgba(base, 0.9),
