@@ -1,11 +1,7 @@
 import styled from '@emotion/styled'
 import { useEffect } from 'react'
 
-const Page = styled.main`
-  flex: 1;
-  display: flex;
-  flex-direction: column;
-`
+const Page = styled.main``
 
 function PageTitle({ children }) {
   if (!(typeof children === 'string')) {

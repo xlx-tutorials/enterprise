@@ -4,7 +4,7 @@ import useMountedEffect from './useMountedEffect'
 export default function useAutoControlledState({
   value,
   defaultValue,
-  onChange,
+  onChange = () => {},
 }) {
   if (value !== undefined && defaultValue !== undefined) {
     throw new Error(

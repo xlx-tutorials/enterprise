@@ -7,9 +7,9 @@ const headerCSS = css`
   height: 120px;
 `
 
-function Header({ children }) {
+function Header({ children, ...props }) {
   return (
-    <Block className='Header' css={headerCSS}>
+    <Block className='Header' css={headerCSS} {...props}>
       <div
         className='wrapper'
         css={css`
