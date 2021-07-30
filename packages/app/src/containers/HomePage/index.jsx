@@ -2,7 +2,7 @@ import { Article } from 'components/Article'
 import Logo from 'components/Logo'
 import { Page, PageTitle } from 'components/Page'
 import ToggleTheme from 'components/ToggleTheme'
-import Filter from 'containers/Filter'
+import FilterBlock from 'containers/FilterBlock'
 import Header from 'containers/Header'
 import Search from 'containers/Header/components/Search'
 import SelectScopes from 'containers/Header/components/SelectScopes'
@@ -26,7 +26,7 @@ function HomePage() {
       </Header>
 
       <Article style={{ marginTop: 20 }}>
-        <Filter />
+        <FilterBlock />
       </Article>
     </Page>
   )

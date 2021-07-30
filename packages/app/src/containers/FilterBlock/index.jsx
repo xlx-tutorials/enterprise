@@ -2,7 +2,7 @@ import { Block } from 'components/Block'
 import Checkbox from 'components/Checkbox'
 import { FilterCheckBox, FilterLabel, FilterRow } from './styled'
 
-function Filter() {
+function FilterBlock() {
   return (
     <Block className='Filter'>
       <FilterRow>filter</FilterRow>
@@ -17,4 +17,4 @@ function Filter() {
   )
 }
 
-export default Filter
+export default FilterBlock
