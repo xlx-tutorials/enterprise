@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useRef, useState } from 'react'
 
 function useRadio(defaultValue) {
   const [value, setValue] = useState(defaultValue)
@@ -29,6 +29,7 @@ function useRadio(defaultValue) {
 */
 function useRadioGroup(defaultValue = []) {
   const [groupValue, setGroupValue] = useState(defaultValue)
+  const lastSelectedValueRef = useRef()
 
   const bind = (index) => ({
     value: groupValue[index],
@@ -36,12 +37,23 @@ function useRadioGroup(defaultValue = []) {
       setGroupValue((prev) => {
         const newValue = [...prev]
         newValue[index] = val
+
         return newValue
       }),
   })
 
   function clear() {
+    lastSelectedValueRef.current = groupValue
     setGroupValue([])
+  }
+
+  function recoverLastSelection() {
+    setGroupValue(lastSelectedValueRef.current)
+  }
+
+  if (!lastSelectedValueRef.current) {
+    // eslint-disable-next-line no-func-assign
+    recoverLastSelection = false
   }
 
   return {
@@ -49,6 +61,7 @@ function useRadioGroup(defaultValue = []) {
     setGroupValue,
     bind,
     clear,
+    recoverLastSelection,
   }
 }
 

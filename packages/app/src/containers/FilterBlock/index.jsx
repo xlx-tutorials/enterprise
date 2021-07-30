@@ -1,6 +1,7 @@
 import { Block } from 'components/Block'
 import Radio from 'components/Radio'
 import { useRadioGroup } from 'components/Radio/hooks'
+import { Button } from 'containers/DemoPage/components/Button'
 import { FilterLabel, FilterRow } from './components/styled'
 
 const fakeData = [
@@ -54,12 +55,35 @@ const fakeData = [
       },
     ],
   },
+  {
+    label: '行业分类',
+    radio: [
+      {
+        label: '行业分类1',
+        value: '行业分类1',
+      },
+      {
+        label: '行业分类2',
+        value: '行业分类2',
+      },
+      {
+        label: '行业分类3',
+        value: '行业分类3',
+      },
+      {
+        label: '行业分类4',
+        value: '行业分类4',
+      },
+      {
+        label: '行业分类5',
+        value: '行业分类5',
+      },
+    ],
+  },
 ]
 
 function FilterBlock() {
-  const { bind, groupValue } = useRadioGroup()
-
-  console.log(groupValue)
+  const { bind, groupValue, clear, recoverLastSelection } = useRadioGroup()
 
   return (
     <Block className='Filter'>
@@ -75,6 +99,27 @@ function FilterBlock() {
           </Radio>
         </FilterRow>
       ))}
+      <FilterRow
+        style={{
+          padding: '12px 18px',
+        }}>
+        <Button
+          style={{
+            marginLeft: 'auto',
+          }}
+          // eslint-disable-next-line no-unneeded-ternary
+          onClick={recoverLastSelection ? recoverLastSelection : () => {}}>
+          {recoverLastSelection ? '恢复' : ''}
+        </Button>
+        <Button
+          style={{
+            marginLeft: 20,
+            color: 'orangered',
+          }}
+          onClick={clear}>
+          重置
+        </Button>
+      </FilterRow>
     </Block>
   )
 }
