@@ -1,7 +1,7 @@
 import { css } from '@emotion/react'
 import { useTheme } from 'contexts/ThemeProvider'
 
-function Search() {
+function Search({ ...props }) {
   const { theme } = useTheme()
 
   return (
@@ -37,7 +37,8 @@ function Search() {
           border-top-left-radius: 0;
           border-bottom-left-radius: 0;
         }
-      `}>
+      `}
+      {...props}>
       <input type='text' />
       <button type='button'>搜一下</button>
     </div>
