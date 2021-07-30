@@ -20,7 +20,7 @@ export default function useAutoControlledState({
   }, [state])
 
   // trigger onChange when value state change
-  if (value !== undefined) {
+  if (defaultValue === undefined) {
     state = value
     setState = (valueOrCallback) => {
       if (typeof valueOrCallback === 'function') {
