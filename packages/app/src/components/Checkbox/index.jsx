@@ -50,12 +50,12 @@ function Option({ active, children, ...props }) {
 
 function Checkbox({
   children,
-  value,
+  value = [],
   defaultValue,
   onChange = () => {},
   ...props
 }) {
-  const [checked, setChecked] = useState({
+  const [checked, setChecked] = useAutoControlledState({
     value,
     defaultValue,
     onChange,

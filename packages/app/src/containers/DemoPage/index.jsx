@@ -46,7 +46,7 @@ function DemoPage() {
 
       <div style={{ margin: 20 }}>
         <Checkbox {...bind()}>
-          <Checkbox.Option value={{ name: 'apple' }}>Apple</Checkbox.Option>
+          <Checkbox.Option value='apple'>Apple</Checkbox.Option>
           <Checkbox.Option value='banana'>Banana</Checkbox.Option>
         </Checkbox>
 
