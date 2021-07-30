@@ -25,7 +25,7 @@ const fontSize = {
 }
 
 const borders = {
-  base: `1px solid ${colors.black[10]}`,
+  base: `1px solid ${colors.black[6]}`,
   button: `1px solid ${colors.black[20]}`,
 }
 

@@ -2,7 +2,7 @@ import { css } from '@emotion/react'
 import styled from '@emotion/styled'
 import { useTheme } from 'contexts/ThemeProvider'
 import { size } from 'polished'
-import React, { useState } from 'react'
+import React from 'react'
 import { RiCheckFill } from 'react-icons/ri'
 import useAutoControlledState from '../../hooks/useAutoControlledState'
 
@@ -55,7 +55,7 @@ function Checkbox({
   onChange = () => {},
   ...props
 }) {
-  const [checked, setChecked] = useState({
+  const [checked, setChecked] = useAutoControlledState({
     value,
     defaultValue,
     onChange,
