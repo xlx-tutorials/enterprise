@@ -1,8 +1,11 @@
 import { css } from '@emotion/react'
 import styled from '@emotion/styled'
+import { Block } from 'components/Block'
 import Checkbox from 'components/Checkbox'
 import { useCheckbox } from 'components/Checkbox/hooks'
 import { Page } from 'components/Page'
+import Radio from 'components/Radio'
+import { useRadio, useRadioGroup } from 'components/Radio/hooks'
 import { Select } from 'components/Select'
 import Toast from 'components/Toast'
 import { useToast } from 'components/Toast/hooks'
@@ -26,6 +29,10 @@ const MyButton = styled.button`
 function DemoPage() {
   const { bind, value, setValue, clear } = useCheckbox()
   const { bind: bindToast } = useToast()
+
+  const { bind: binRadioGroup, groupValue: radioGroupValue } = useRadioGroup()
+
+  console.log(radioGroupValue)
 
   return (
     <Page
@@ -62,6 +69,21 @@ function DemoPage() {
       {/* <button type='button' onClick={() => Toast.show()}>
         Close Immediately
       </button> */}
+
+      <Block>
+        <Radio {...binRadioGroup(0)}>
+          <Radio.Option value='apple'>Apple</Radio.Option>
+          <Radio.Option value='banana'>Banana</Radio.Option>
+        </Radio>
+        <Radio {...binRadioGroup(1)}>
+          <Radio.Option value='apple'>Apple</Radio.Option>
+          <Radio.Option value='banana'>Banana</Radio.Option>
+        </Radio>
+        <Radio {...binRadioGroup(2)}>
+          <Radio.Option value='apple'>Apple</Radio.Option>
+          <Radio.Option value='banana'>Banana</Radio.Option>
+        </Radio>
+      </Block>
     </Page>
   )
 }
