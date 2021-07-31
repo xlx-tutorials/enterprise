@@ -1,5 +1,6 @@
 import { Link } from '@reach/router'
 import { Block } from 'components/Block'
+import React from 'react'
 import ListItem from './components/ListItem'
 import { SortButton, SortContainer, SortLabel } from './components/styled'
 
