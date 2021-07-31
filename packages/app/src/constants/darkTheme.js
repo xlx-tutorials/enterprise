@@ -12,6 +12,7 @@ const colors = {
 
 const textColor = {
   base: colors.text,
+  gray: colors.black[80],
   primary: colors.primary,
   muted: colors.black[40],
   hint: colors.black[20],

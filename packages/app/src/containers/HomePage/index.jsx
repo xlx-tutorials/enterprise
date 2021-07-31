@@ -1,3 +1,4 @@
+import { css } from '@emotion/react'
 import { Article } from 'components/Article'
 import Logo from 'components/Logo'
 import { Page, PageTitle } from 'components/Page'
@@ -7,14 +8,11 @@ import Header from 'containers/Header'
 import Search from 'containers/Header/components/Search'
 import SelectScopes from 'containers/Header/components/SelectScopes'
 import { HeaderTitle } from 'containers/Header/components/styled'
-
-// composition pattern
+import ListBlock from 'containers/ListBlock'
 
 function HomePage() {
-  // const { theme, toggleTheme } = useTheme()
-
   return (
-    <Page className='HomePage'>
+    <Page className='HomePage' style={{ paddingBottom: '20vh' }}>
       <PageTitle>首页</PageTitle>
 
       <Header style={{ marginBottom: 20 }}>
@@ -25,8 +23,12 @@ function HomePage() {
         <ToggleTheme />
       </Header>
 
-      <Article>
+      <Article style={{ marginBottom: 20 }}>
         <FilterBlock />
+      </Article>
+
+      <Article>
+        <ListBlock />
       </Article>
     </Page>
   )

@@ -19,6 +19,7 @@ function Header({ children, ...props }) {
           justify-content: center;
           max-width: 1200px;
           margin: 0 auto;
+          flex-wrap: wrap;
         `}>
         {children}
       </div>

@@ -1,21 +1,41 @@
+import { Article } from 'components/Article'
+import { Block } from 'components/Block'
 import Logo from 'components/Logo'
 import { Page } from 'components/Page'
+import ToggleTheme from 'components/ToggleTheme'
+import { Tab, Tabs } from 'containers/DemoPage/components/Tabs'
 import Header from 'containers/Header'
+import Search from 'containers/Header/components/Search'
+import SelectScopes from 'containers/Header/components/SelectScopes'
 import { HeaderTitle } from 'containers/Header/components/styled'
+import ListItem from 'containers/ListBlock/components/ListItem'
 
-// components prop
-// render prop
-
-function DetailPage() {
+function DetailPage({ children }) {
   return (
     <Page className='DetailPage'>
-      <Header>
+      <Header style={{ marginBottom: 20 }}>
         <Logo />
-        <HeaderTitle style={{ marginRight: 'auto' }}>资源库</HeaderTitle>
-        {/* <Search />
+        <HeaderTitle>资源库</HeaderTitle>
+        <Search />
         <SelectScopes />
-        <HeaderAvatar /> */}
+        <ToggleTheme />
       </Header>
+
+      <Article style={{ marginBottom: 20 }}>
+        <Block className='info'>
+          <ListItem />
+        </Block>
+      </Article>
+
+      <Article>
+        <Block>
+          <Tabs>
+            <Tab to='jibenxinxi'>基本信息</Tab>
+            <Tab to='caiwuqingkuang'>财务情况</Tab>
+          </Tabs>
+          {children}
+        </Block>
+      </Article>
     </Page>
   )
 }
