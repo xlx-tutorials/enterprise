@@ -12,7 +12,7 @@ import ListItem from 'containers/ListBlock/components/ListItem'
 
 function DetailPage({ children }) {
   return (
-    <Page className='DetailPage'>
+    <Page className='DetailPage' style={{ paddingBottom: '20vh' }}>
       <PageTitle>详情页</PageTitle>
 
       <Header style={{ marginBottom: 20 }}>
