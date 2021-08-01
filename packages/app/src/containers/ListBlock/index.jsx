@@ -25,7 +25,7 @@ function ListBlock() {
       <ListItem />
       <ListItem />
       <ListItem />
-      <ListItem />
+      <ListItem as={Link} to='/detail/jibenxinxi' />
     </Block>
   )
 }
