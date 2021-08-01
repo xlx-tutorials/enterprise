@@ -1,5 +1,6 @@
 import { css } from '@emotion/react'
 import { SubBlock } from 'components/Block'
+import { PageTitle } from 'components/Page'
 import { Table, TableItem, TableRow } from 'components/Table'
 import { useTheme } from 'contexts/ThemeProvider'
 import { useRef } from 'react'
@@ -11,6 +12,8 @@ function Jibenxinxi() {
 
   return (
     <div className='Jibenxinxi'>
+      <PageTitle>详情页 - 基本信息</PageTitle>
+
       <SubBlock
         className='chips'
         css={css`
