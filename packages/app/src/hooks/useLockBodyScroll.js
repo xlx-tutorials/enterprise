@@ -10,11 +10,11 @@ function useLockBodyScroll(isLock = false) {
     if (isLock) {
       body.style.height = '100vh'
       body.style.overflow = 'hidden'
-      body.style.paddingRight = '15px'
+      // body.style.paddingRight = '15px'
     } else {
       body.style.height = 'unset'
       body.style.overflow = 'unset'
-      body.style.paddingRight = 'unset'
+      // body.style.paddingRight = 'unset'
     }
   }, [isLock])
 }
