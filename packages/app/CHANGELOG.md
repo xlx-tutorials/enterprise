@@ -3,6 +3,30 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.2.0](https://github.com/xlx-tutorials/enterprise/compare/v1.1.0...v1.2.0) (2021-08-01)
+
+
+### Bug Fixes
+
+* detect controlled ([1179a29](https://github.com/xlx-tutorials/enterprise/commit/1179a296cdbe69e909bdacf9a42645d196c10078))
+* value undefined ([ee4e5bc](https://github.com/xlx-tutorials/enterprise/commit/ee4e5bccc8c8b16a23d73900f0b18814d15621a6))
+
+
+### Features
+
+* add AnchorButton ([0682476](https://github.com/xlx-tutorials/enterprise/commit/0682476b678c4b18129ea51302fd0970918dc3c6))
+* add Filter, Radio, Radio hooks ([55e902e](https://github.com/xlx-tutorials/enterprise/commit/55e902e29455de559e3453ded3364405b8c06329))
+* add FilterBlock, ListBlock, DetailPage ([1c82343](https://github.com/xlx-tutorials/enterprise/commit/1c823436b52a35749e13677c0c64af5d2a8fc8bf))
+* add recover filter ([610e91f](https://github.com/xlx-tutorials/enterprise/commit/610e91f0088ea48648691f5821c147a12a6048bc))
+* add SubBlock ([dc448e5](https://github.com/xlx-tutorials/enterprise/commit/dc448e52169ee7bb6d1ec8cbed00ab15745bb2a0))
+* demo radio ([63519a5](https://github.com/xlx-tutorials/enterprise/commit/63519a5e1ab543d9b000a82a0aa4cb01b57ba452))
+* 优化主题 ([0a4922f](https://github.com/xlx-tutorials/enterprise/commit/0a4922f6b7708468f4556210266d21350209f7ef))
+* 优化路由滚动位置 ([9967473](https://github.com/xlx-tutorials/enterprise/commit/9967473df74d3bb5a3f28015a008bdb16242218e))
+
+
+
+
+
 # [1.1.0](https://github.com/xlx-tutorials/enterprise/compare/v0.4.0...v1.1.0) (2021-07-27)
 
 
