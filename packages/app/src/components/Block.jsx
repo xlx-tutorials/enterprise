@@ -7,4 +7,10 @@ const Block = styled.article`
   flex-direction: column;
 `
 
-export { Block }
+const SubBlock = styled.section`
+  padding: 20px 24px;
+  display: flex;
+  flex-direction: column;
+`
+
+export { Block, SubBlock }

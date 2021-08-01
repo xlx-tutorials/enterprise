@@ -1,5 +1,4 @@
 import { css } from '@emotion/react'
-import { Link } from '@reach/router'
 import Image from 'components/Image'
 import { Label, Labels } from 'components/Label'
 import { row } from 'utils/cssExtends'

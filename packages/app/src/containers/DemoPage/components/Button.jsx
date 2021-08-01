@@ -8,7 +8,7 @@ function Button({ children, as: As = 'button', ...props }) {
         user-select: none;
         cursor: pointer;
 
-        &:hover {
+        &:hover:not(:disabled) {
           filter: opacity(0.6);
         }
       `}

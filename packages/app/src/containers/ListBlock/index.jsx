@@ -21,11 +21,12 @@ function ListBlock() {
       </SortContainer>
 
       <ListItem as={Link} to='/detail' />
-      <ListItem />
-      <ListItem />
-      <ListItem />
-      <ListItem />
-      <ListItem as={Link} to='/detail/jibenxinxi' />
+      <ListItem as={Link} to='/detail' />
+      <ListItem as={Link} to='/detail' />
+      <ListItem as={Link} to='/detail' />
+      <ListItem as={Link} to='/detail' />
+      <ListItem as={Link} to='/detail' />
+      <ListItem as={Link} to='/detail' />
     </Block>
   )
 }

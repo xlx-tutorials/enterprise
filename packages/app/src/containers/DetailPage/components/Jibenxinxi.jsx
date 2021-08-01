@@ -1,30 +1,37 @@
+import { css } from '@emotion/react'
+import { SubBlock } from 'components/Block'
+import { useTheme } from 'contexts/ThemeProvider'
 import { useRef } from 'react'
-
-const { default: AnchorButton } = require('./AnchorButton')
+import AnchorButton from './AnchorButton'
 
 function Jibenxinxi() {
   const ref = useRef()
+  const { theme } = useTheme()
 
   return (
     <div className='Jibenxinxi'>
-      <div className='chips'>
-        <AnchorButton targetRef={ref}>content2</AnchorButton>
-      </div>
+      <SubBlock
+        className='chips'
+        css={css`
+          padding: 20px 24px 12px;
+          border-bottom: ${theme.borders.base};
+          flex-direction: row;
+          flex-wrap: wrap;
+        `}>
+        {[...Array(20)].map((item, i) => (
+          <AnchorButton targetRef={ref} key={i.toString()}>
+            content2
+          </AnchorButton>
+        ))}
+      </SubBlock>
 
-      <div className='content'>
-        <div
-          ref={ref}
-          style={{
-            height: 2000,
-          }}>
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Sequi
-          repudiandae vero officia sit. Perspiciatis deleniti maxime rerum magni
-          praesentium blanditiis modi. Aut fugit ipsum modi alias culpa impedit
-          asperiores provident.
-        </div>
-
-        <div className='content2'>content2</div>
-      </div>
+      <SubBlock className='info'>
+        <div className='table'>table</div>
+        <div className='highlightTips'>亮点提示</div>
+        <div className='record'>获奖记录</div>
+        <div className='riskTips'>风险提示</div>
+        <div className='weifaweizhang'>违法违章</div>
+      </SubBlock>
     </div>
   )
 }
