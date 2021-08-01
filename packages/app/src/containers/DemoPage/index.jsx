@@ -2,6 +2,9 @@ import styled from '@emotion/styled'
 import { Block } from 'components/Block'
 import Checkbox from 'components/Checkbox'
 import { useCheckbox } from 'components/Checkbox/hooks'
+import Modal from 'components/Modal'
+import { useModal } from 'components/Modal/hooks'
+import { ModalContent } from 'components/Modal/styled'
 import { Page } from 'components/Page'
 import Radio from 'components/Radio'
 import { useRadioGroup } from 'components/Radio/hooks'
@@ -31,7 +34,7 @@ function DemoPage() {
 
   const { bind: binRadioGroup, groupValue: radioGroupValue } = useRadioGroup()
 
-  console.log(radioGroupValue)
+  const { bind: bindModal, toggle, open } = useModal()
 
   return (
     <Page
@@ -82,6 +85,20 @@ function DemoPage() {
           <Radio.Option value='apple'>Apple</Radio.Option>
           <Radio.Option value='banana'>Banana</Radio.Option>
         </Radio>
+      </Block>
+
+      <Block
+        className='modal'
+        style={{
+          height: 2000,
+        }}>
+        <button type='button' onClick={toggle}>
+          Show modal
+        </button>
+
+        <Modal {...bindModal()}>
+          <ModalContent>Hello</ModalContent>
+        </Modal>
       </Block>
     </Page>
   )
