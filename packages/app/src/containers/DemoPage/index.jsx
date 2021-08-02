@@ -97,7 +97,7 @@ function DemoPage() {
         </button>
 
         <Modal {...bindModal()}>
-          <ModalContent>Hello</ModalContent>
+          <ModalContent>hello</ModalContent>
         </Modal>
       </Block>
     </Page>

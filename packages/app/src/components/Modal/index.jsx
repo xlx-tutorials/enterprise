@@ -50,14 +50,14 @@ function Modal({
     <ModalContainer className='Modal' onClick={handleClickConatiner} {...props}>
       <ModalBackground className='background' />
       <ModalChilren>
-        {React.Children.map(children, (child) =>
-          React.cloneElement(child, {
+        {React.Children.map(children, (child) => {
+          return React.cloneElement(child, {
             onClick: (ev) => {
               ev.stopPropagation()
               child.onClick?.(ev)
             },
           })
-        )}
+        })}
       </ModalChilren>
     </ModalContainer>,
     document.body
