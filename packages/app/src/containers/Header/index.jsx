@@ -1,11 +1,16 @@
 import { css } from '@emotion/react'
 import { Block } from 'components/Block'
+import { themeCSS } from 'utils/themeCSS'
 
-const headerCSS = css`
-  flex-direction: row;
-  align-items: center;
-  height: 120px;
-`
+const headerCSS = themeCSS(
+  (theme) => css`
+    flex-direction: row;
+    align-items: center;
+    height: 120px;
+    border: none;
+    border-bottom: ${theme.borders.base};
+  `
+)
 
 function Header({ children, ...props }) {
   return (
