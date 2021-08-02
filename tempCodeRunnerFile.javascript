@@ -1,5 +1,15 @@
-const a = {name: 1}
+a = {
+  style: {
+    color: 'red'
+  }
+}
 
-const b = [[a]].flat().find(item=>item===a)
+console.log(
+  Object.assign(a, {
+    style: {
+      background: 'blue'
+    }
+  })
+)
 
-console.log( b === a )
+console.log( a )

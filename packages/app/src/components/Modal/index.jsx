@@ -1,7 +1,20 @@
+import { css, keyframes } from '@emotion/react'
 import useAutoControlledState from 'hooks/useAutoControlledState'
 import { useLockBodyScroll } from 'hooks/useLockBodyScroll'
+import React from 'react'
 import reactDom from 'react-dom'
-import { ModalBackground, ModalContainer } from './styled'
+import { ModalBackground, ModalChilren, ModalContainer } from './styled'
+
+const bgKeyframes = keyframes`
+  from {
+    opacity: 0;
+
+  }
+
+  to {
+    opacity: 1;
+  }
+`
 
 function Modal({
   children,
@@ -28,15 +41,24 @@ function Modal({
 
   useLockBodyScroll(openState)
 
-  function handleClickBg() {
+  function handleClickConatiner() {
     setOpenState(false)
   }
 
   if (!openState) return null
   return reactDom.createPortal(
-    <ModalContainer className='Modal' {...props}>
-      <ModalBackground className='background' onClick={handleClickBg} />
-      {children}
+    <ModalContainer className='Modal' onClick={handleClickConatiner} {...props}>
+      <ModalBackground className='background' />
+      <ModalChilren>
+        {React.Children.map(children, (child) =>
+          React.cloneElement(child, {
+            onClick: (ev) => {
+              ev.stopPropagation()
+              child.onClick?.(ev)
+            },
+          })
+        )}
+      </ModalChilren>
     </ModalContainer>,
     document.body
   )

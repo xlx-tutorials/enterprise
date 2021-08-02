@@ -19,6 +19,15 @@ const ModalBackground = styled.div(
   `
 )
 
+const ModalChilren = styled.div(
+  ({ theme }) => css`
+    ${cover()};
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  `
+)
+
 const ModalContent = styled.div(
   ({ theme }) => css`
     position: relative;
@@ -30,4 +39,4 @@ const ModalContent = styled.div(
   `
 )
 
-export { ModalContainer, ModalBackground, ModalContent }
+export { ModalContainer, ModalBackground, ModalChilren, ModalContent }
