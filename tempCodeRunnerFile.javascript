@@ -1,15 +1,11 @@
-a = {
-  style: {
-    color: 'red'
-  }
+function a() {
+  // console.log( 'a' )
 }
 
-console.log(
-  Object.assign(a, {
-    style: {
-      background: 'blue'
-    }
-  })
-)
+function b() {
+  console.log('b')
+}
 
-console.log( a )
+const run = () => (console.log('a'), b)
+
+console.log(run())
