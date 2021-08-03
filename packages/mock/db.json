@@ -1,9 +1,47 @@
 {
-  "users": [
+  "streets": [
     {
-      "id": "1",
-      "username": "iamyoki",
-      "age": 9
+      "id": 1,
+      "name": "街道1"
+    },
+    {
+      "id": 2,
+      "name": "街道2"
+    },
+    {
+      "id": 3,
+      "name": "街道3"
+    }
+  ],
+  "industries": [
+    {
+      "id": 1,
+      "name": "行业分类1"
+    },
+    {
+      "id": 2,
+      "name": "行业分类2"
+    },
+    {
+      "id": 3,
+      "name": "行业分类3"
+    }
+  ],
+  "enterprises": [
+    {
+      "id": 1,
+      "streetId": 1,
+      "industryId": 1
+    },
+    {
+      "id": 2,
+      "streetId": 2,
+      "industryId": 2
+    },
+    {
+      "id": 3,
+      "streetId": 1,
+      "industryId": 2
     }
   ]
 }
