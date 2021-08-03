@@ -41,6 +41,9 @@ function GlobalCSS() {
       styles={[
         globalCSS,
         (theme) => ({
+          ':root': {
+            colorScheme: theme.mode,
+          },
           body: {
             color: theme.textColor.base,
             backgroundColor: theme.colors.background,
