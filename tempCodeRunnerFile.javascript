@@ -1,11 +1,5 @@
-function a() {
-  // console.log( 'a' )
+function a(options = ({ name = '321', age: '333' } = { name: '123' })) {
+  console.log(options)
 }
 
-function b() {
-  console.log('b')
-}
-
-const run = () => (console.log('a'), b)
-
-console.log(run())
+a({ age: '123' })

@@ -2,6 +2,7 @@ import { css } from '@emotion/react'
 import useAutoControlledState from 'hooks/useAutoControlledState'
 import { useLockBodyScroll } from 'hooks/useLockBodyScroll'
 import { useTransition } from 'hooks/useTransition'
+import { useTransition2 } from 'hooks/useTransition2'
 import React from 'react'
 import reactDom from 'react-dom'
 import { ModalBackground, ModalChilren, ModalContainer } from './styled'
@@ -65,7 +66,7 @@ function Modal({
     },
   })
 
-  const state = useTransition({ onOff: openState, timeout: 300 })
+  const { onMount, state } = useTransition2({ onOff: openState })
 
   useLockBodyScroll(openState, {
     timeout: 400,
@@ -76,21 +77,28 @@ function Modal({
   }
 
   return reactDom.createPortal(
-    state !== 'exited' && (
+    onMount && (
       <ModalContainer
         className='Modal'
         onClick={handleClickConatiner}
         css={css`
-          opacity: 0;
-          ${transitionStyles[state]}
+          opacity: ${{
+            from: 0,
+            enter: 1,
+            leave: 0,
+          }[state]};
           transition: 0.4s;
         `}
         {...props}>
         <ModalBackground className='background' />
         <ModalChilren
           css={css`
-            ${childrenTransitionStles[state]}
-            transition: 0.4s cubic-bezier(.22,.93,.37,1.07);
+            transform: ${{
+              from: 'translateY(-40px)',
+              enter: 'translateY(0px)',
+              leave: 'translateY(-40px)',
+            }[state]};
+            transition: 0.2s ease-out;
           `}>
           {React.Children.map(children, (child) => {
             return React.cloneElement(child, {
