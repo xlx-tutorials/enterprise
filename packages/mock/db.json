@@ -1,9 +1,38 @@
 {
-  "users": [
+  "streets": [
     {
-      "id": "1",
+      "id": 1,
+      "name": "神秘街道1"
+    },
+    {
+      "id": 2,
+      "name": "神秘街道2"
+    }
+  ],
+  "enterpriseLabels": [
+    {
+      "id": 1,
+      "name": "企业标签1"
+    },
+    {
+      "id": 2,
+      "name": "企业标签2"
+    }
+  ],
+  "enterprises": [
+    {
+      "id": 1,
       "username": "iamyoki",
-      "age": 9
+      "age": 9,
+      "streetId": 1,
+      "enterpiseLabelId": 1
+    },
+    {
+      "id": 2,
+      "username": "John Doe",
+      "age": 32,
+      "streetId": 2,
+      "enterpiseLabelId": 2
     }
   ]
 }
