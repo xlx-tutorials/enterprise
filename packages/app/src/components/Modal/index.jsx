@@ -1,10 +1,10 @@
 import { css } from '@emotion/react'
 import useAutoControlledState from 'hooks/useAutoControlledState'
 import { useLockBodyScroll } from 'hooks/useLockBodyScroll'
-import { useTransition } from 'hooks/useTransition'
 import { useTransition2 } from 'hooks/useTransition2'
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import reactDom from 'react-dom'
+import useSpring from 'react-use/lib/useSpring'
 import { ModalBackground, ModalChilren, ModalContainer } from './styled'
 
 const transitionStyles = {
@@ -67,6 +67,18 @@ function Modal({
   })
 
   const { onMount, state } = useTransition2({ onOff: openState })
+  const [y, setY] = useState(0)
+  const springY = useSpring(y, 100, 8)
+
+  useEffect(() => {
+    if (state === 'enter') {
+      setY(0)
+    } else if (state === 'from') {
+      setY(-200)
+    } else {
+      setY(-40)
+    }
+  }, [state])
 
   useLockBodyScroll(openState, {
     timeout: 400,
@@ -93,12 +105,13 @@ function Modal({
         <ModalBackground className='background' />
         <ModalChilren
           css={css`
-            transform: ${{
+            /* transform: ${{
               from: 'translateY(-40px)',
               enter: 'translateY(0px)',
               leave: 'translateY(-40px)',
-            }[state]};
-            transition: 0.2s ease-out;
+            }[state]}; */
+            transform: translateY(${springY}px);
+            /* transition: 0.2s ease-out; */
           `}>
           {React.Children.map(children, (child) => {
             return React.cloneElement(child, {

@@ -18,6 +18,7 @@
     "react-scripts": "4.0.3",
     "react-transition-group": "^4.4.2",
     "react-use": "^17.2.4",
+    "rebound": "^0.1.0",
     "web-vitals": "^1.0.1"
   },
   "scripts": {

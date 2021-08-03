@@ -15129,6 +15129,11 @@ readdirp@~3.6.0:
   dependencies:
     picomatch "^2.2.1"
 
+rebound@^0.1.0:
+  version "0.1.0"
+  resolved "https://registry.npmjs.org/rebound/-/rebound-0.1.0.tgz#0638c61a93666bb515a58a03e1cfb34021e88b72"
+  integrity sha1-BjjGGpNma7UVpYoD4c+zQCHoi3I=
+
 recast@~0.11.12:
   version "0.11.23"
   resolved "https://registry.npmjs.org/recast/-/recast-0.11.23.tgz#451fd3004ab1e4df9b4e4b66376b2a21912462d3"
