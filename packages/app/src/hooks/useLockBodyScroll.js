@@ -1,21 +1,35 @@
 // body height = '100vh'
 
-import { useLayoutEffect } from 'react'
+import { useLayoutEffect, useRef } from 'react'
 
 const scrollBarWidth = window.innerWidth - document.body.offsetWidth
 
-function useLockBodyScroll(isLock = false) {
+function lock() {
+  const { body } = window.document
+  body.style.height = '100vh'
+  body.style.overflow = 'hidden'
+  body.style.paddingRight = `${scrollBarWidth}px`
+}
+
+function unlock() {
+  const { body } = window.document
+  body.style.height = 'unset'
+  body.style.overflow = 'unset'
+  body.style.paddingRight = 'unset'
+}
+
+function useLockBodyScroll(isLock = false, { timeout } = {}) {
+  const timerRef = useRef()
+
   useLayoutEffect(() => {
-    const { body } = window.document
+    clearTimeout(timerRef.current)
 
     if (isLock) {
-      body.style.height = '100vh'
-      body.style.overflow = 'hidden'
-      body.style.paddingRight = `${scrollBarWidth}px`
+      lock()
+    } else if (timeout) {
+      timerRef.current = setTimeout(unlock, timeout)
     } else {
-      body.style.height = 'unset'
-      body.style.overflow = 'unset'
-      body.style.paddingRight = 'unset'
+      unlock()
     }
   }, [isLock])
 }

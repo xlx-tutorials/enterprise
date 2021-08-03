@@ -1,7 +1,22 @@
 import useAutoControlledState from 'hooks/useAutoControlledState'
 import { useLockBodyScroll } from 'hooks/useLockBodyScroll'
+import { useEffect, useState } from 'react'
 import reactDom from 'react-dom'
-import { ModalBackground, ModalContainer } from './styled'
+import { ModalBackground, ModalChildren, ModalContainer } from './styled'
+import './modal.css'
+
+/* 
+  进场
+  keyframe {
+    from {
+      opacity: 0; //1
+    }
+    to {
+      opacity: 1;
+    }
+  }
+  出场
+*/
 
 function Modal({
   children,
@@ -25,18 +40,36 @@ function Modal({
       onChange(newState)
     },
   })
+  const [show, setShow] = useState(openState)
 
-  useLockBodyScroll(openState)
+  useLockBodyScroll(openState, { timeout: 400 })
+
+  useEffect(() => {
+    if (openState) {
+      setShow(true)
+    }
+  }, [openState])
 
   function handleClickBg() {
     setOpenState(false)
   }
 
-  if (!openState) return null
+  function handleAnimationEnd() {
+    if (!openState) {
+      setShow(false)
+    }
+  }
+
+  if (!show) return null
   return reactDom.createPortal(
-    <ModalContainer className='Modal' {...props}>
+    <ModalContainer
+      className={`Modal ${openState ? 'in' : 'out'}`}
+      onAnimationEnd={handleAnimationEnd}
+      {...props}>
       <ModalBackground className='background' onClick={handleClickBg} />
-      {children}
+      <ModalChildren className={`Children ${openState ? 'in' : 'out'}`}>
+        {children}
+      </ModalChildren>
     </ModalContainer>,
     document.body
   )

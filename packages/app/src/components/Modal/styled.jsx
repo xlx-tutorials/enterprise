@@ -30,4 +30,10 @@ const ModalContent = styled.div(
   `
 )
 
-export { ModalContainer, ModalBackground, ModalContent }
+const ModalChildren = styled.div`
+  display: flex;
+  align-items: center;
+  justify-content: center;
+`
+
+export { ModalContainer, ModalBackground, ModalContent, ModalChildren }
