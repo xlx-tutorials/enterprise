@@ -2,6 +2,7 @@ import { Block } from 'components/Block'
 import Radio from 'components/Radio'
 import { useRadioGroup } from 'components/Radio/hooks'
 import { Button } from 'containers/DemoPage/components/Button'
+import { useEffect, useState } from 'react'
 import { FilterLabel, FilterRow } from './components/styled'
 
 const fakeData = [
@@ -85,8 +86,26 @@ const fakeData = [
 function FilterBlock() {
   const { bind, groupValue, clear, recoverLastSelection } = useRadioGroup()
 
+  const [streets, setStreets] = useState([])
+
+  useEffect(() => {
+    fetch('http://localhost:5000/streets')
+      .then((res) => res.json())
+      .then((data) => setStreets(data))
+  }, [])
+
   return (
     <Block className='Filter'>
+      <FilterRow>
+        <FilterLabel>街道地区</FilterLabel>
+        <Radio>
+          {streets.map((option) => (
+            <Radio.Option key={option.name} value={option.name} noCircle>
+              {option.name}
+            </Radio.Option>
+          ))}
+        </Radio>
+      </FilterRow>
       {fakeData.map((item, i) => (
         <FilterRow key={item.label}>
           <FilterLabel>{item.label}</FilterLabel>
