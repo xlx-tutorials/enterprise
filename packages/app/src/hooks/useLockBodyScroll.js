@@ -25,7 +25,7 @@ function useLockBodyScroll(isLock = false, { timeout } = {}) {
     clearTimeout(timerRef.current)
 
     const overScroll =
-      window.innerHeight - document.documentElement.scrollHeight
+      document.documentElement.scrollHeight - window.innerHeight
 
     if (overScroll <= 0) {
       return

@@ -1,9 +1,9 @@
 import useAutoControlledState from 'hooks/useAutoControlledState'
 import { useLockBodyScroll } from 'hooks/useLockBodyScroll'
-import { useEffect, useState } from 'react'
 import reactDom from 'react-dom'
-import { ModalBackground, ModalChildren, ModalContainer } from './styled'
+import { Transition } from 'react-transition-group'
 import './modal.css'
+import { ModalBackground, ModalChildren, ModalContainer } from './styled'
 
 /* 
   进场
@@ -16,6 +16,28 @@ import './modal.css'
     }
   }
   出场
+*/
+
+const bgAnimation = {
+  entering: { opacity: 1 },
+  entered: { opacity: 1 },
+  exiting: { opacity: 0 },
+  exited: { opacity: 0 },
+}
+
+const childrenAnimation = {
+  entering: { transform: 'translateY(0px)' },
+  entered: { transform: 'translateY(0px)' },
+  exiting: { transform: 'translateY(-40px)', transition: '.3s' },
+  exited: { transform: 'translateY(-40px)' },
+}
+
+/* 
+  state = {
+    from: {opacity: 0},
+    enter: {opacity: 1},
+    leave: {opacity: 0}
+  }
 */
 
 function Modal({
@@ -40,37 +62,39 @@ function Modal({
       onChange(newState)
     },
   })
-  const [show, setShow] = useState(openState)
 
-  useLockBodyScroll(openState, { timeout: 400 })
+  const timeout = 300
 
-  useEffect(() => {
-    if (openState) {
-      setShow(true)
-    }
-  }, [openState])
+  useLockBodyScroll(openState, { timeout })
 
   function handleClickBg() {
     setOpenState(false)
   }
 
-  function handleAnimationEnd() {
-    if (!openState) {
-      setShow(false)
-    }
-  }
-
-  if (!show) return null
   return reactDom.createPortal(
-    <ModalContainer
-      className={`Modal ${openState ? 'in' : 'out'}`}
-      onAnimationEnd={handleAnimationEnd}
-      {...props}>
-      <ModalBackground className='background' onClick={handleClickBg} />
-      <ModalChildren className={`Children ${openState ? 'in' : 'out'}`}>
-        {children}
-      </ModalChildren>
-    </ModalContainer>,
+    <Transition in={openState} timeout={timeout} unmountOnExit>
+      {(state) => {
+        return (
+          <ModalContainer
+            className='Modal'
+            style={{
+              transition: '.3s',
+              ...bgAnimation[state],
+            }}
+            {...props}>
+            <ModalBackground className='background' onClick={handleClickBg} />
+            <ModalChildren
+              className='Children'
+              style={{
+                transition: '.3s cubic-bezier(.02,.68,.33,1.11)',
+                ...childrenAnimation[state],
+              }}>
+              {children}
+            </ModalChildren>
+          </ModalContainer>
+        )
+      }}
+    </Transition>,
     document.body
   )
 }
