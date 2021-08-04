@@ -2,6 +2,7 @@ import styled from '@emotion/styled'
 import { Block } from 'components/Block'
 import Checkbox from 'components/Checkbox'
 import { useCheckbox } from 'components/Checkbox/hooks'
+import Collapse from 'components/Collapse'
 import Modal from 'components/Modal'
 import { useModal } from 'components/Modal/hooks'
 import { ModalContent } from 'components/Modal/styled'
@@ -11,6 +12,7 @@ import { useRadioGroup } from 'components/Radio/hooks'
 import { Select } from 'components/Select'
 import Toast from 'components/Toast'
 import { useToast } from 'components/Toast/hooks'
+import { useState } from 'react'
 import { Button } from './components/Button'
 /* 
   list: [
@@ -35,6 +37,8 @@ function DemoPage() {
   const { bind: binRadioGroup, groupValue: radioGroupValue } = useRadioGroup()
 
   const { bind: bindModal, toggle, open } = useModal()
+
+  const [hide, setHide] = useState(true)
 
   return (
     <Page
@@ -89,9 +93,11 @@ function DemoPage() {
 
       <Block
         className='modal'
-        style={{
-          height: 2000,
-        }}>
+        style={
+          {
+            // height: 2000,
+          }
+        }>
         <button type='button' onClick={toggle}>
           Show modal
         </button>
@@ -99,6 +105,18 @@ function DemoPage() {
         <Modal {...bindModal()}>
           <ModalContent>Hello</ModalContent>
         </Modal>
+      </Block>
+
+      <button type='button' onClick={() => setHide(!hide)}>
+        Toggle
+      </button>
+      <Block
+        style={{
+          flexDirection: 'row',
+        }}>
+        <Collapse hide={hide}>
+          <div>Lorem ipsum</div>
+        </Collapse>
       </Block>
     </Page>
   )
