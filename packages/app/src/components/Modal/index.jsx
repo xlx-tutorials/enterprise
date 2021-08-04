@@ -1,7 +1,7 @@
 import useAutoControlledState from 'hooks/useAutoControlledState'
 import { useLockBodyScroll } from 'hooks/useLockBodyScroll'
+import { useTransition } from 'hooks/useTransition'
 import reactDom from 'react-dom'
-import { Transition } from 'react-transition-group'
 import './modal.css'
 import { ModalBackground, ModalChildren, ModalContainer } from './styled'
 
@@ -18,27 +18,43 @@ import { ModalBackground, ModalChildren, ModalContainer } from './styled'
   出场
 */
 
+// const bgAnimation = {
+//   entering: { opacity: 1 },
+//   entered: { opacity: 1 },
+//   exiting: { opacity: 0 },
+//   exited: { opacity: 0 },
+// }
+
+// const childrenAnimation = {
+//   entering: { transform: 'translateY(0px)' },
+//   entered: { transform: 'translateY(0px)' },
+//   exiting: { transform: 'translateY(-40px)', transition: '.3s' },
+//   exited: { transform: 'translateY(-40px)' },
+// }
+
+const timeout = 300
 const bgAnimation = {
-  entering: { opacity: 1 },
-  entered: { opacity: 1 },
-  exiting: { opacity: 0 },
-  exited: { opacity: 0 },
+  from: {
+    opacity: 0,
+  },
+  enter: {
+    opacity: 1,
+  },
+  leave: {
+    opacity: 0,
+  },
 }
-
 const childrenAnimation = {
-  entering: { transform: 'translateY(0px)' },
-  entered: { transform: 'translateY(0px)' },
-  exiting: { transform: 'translateY(-40px)', transition: '.3s' },
-  exited: { transform: 'translateY(-40px)' },
+  from: {
+    transform: 'translateY(-40px) scale(1.2)',
+  },
+  enter: {
+    transform: 'translateY(0px)',
+  },
+  leave: {
+    transform: 'translateY(-40px) scale(.6)',
+  },
 }
-
-/* 
-  state = {
-    from: {opacity: 0},
-    enter: {opacity: 1},
-    leave: {opacity: 0}
-  }
-*/
 
 function Modal({
   children,
@@ -62,8 +78,7 @@ function Modal({
       onChange(newState)
     },
   })
-
-  const timeout = 300
+  const { state, onMount } = useTransition({ onOff: openState, timeout })
 
   useLockBodyScroll(openState, { timeout })
 
@@ -71,30 +86,25 @@ function Modal({
     setOpenState(false)
   }
 
+  if (!onMount) return null
   return reactDom.createPortal(
-    <Transition in={openState} timeout={timeout} unmountOnExit>
-      {(state) => {
-        return (
-          <ModalContainer
-            className='Modal'
-            style={{
-              transition: '.3s',
-              ...bgAnimation[state],
-            }}
-            {...props}>
-            <ModalBackground className='background' onClick={handleClickBg} />
-            <ModalChildren
-              className='Children'
-              style={{
-                transition: '.3s cubic-bezier(.02,.68,.33,1.11)',
-                ...childrenAnimation[state],
-              }}>
-              {children}
-            </ModalChildren>
-          </ModalContainer>
-        )
+    <ModalContainer
+      className='Modal'
+      style={{
+        transition: '.3s',
+        ...bgAnimation[state],
       }}
-    </Transition>,
+      {...props}>
+      <ModalBackground className='background' onClick={handleClickBg} />
+      <ModalChildren
+        className='Children'
+        style={{
+          transition: '.3s cubic-bezier(.02,.68,.33,1.11)',
+          ...childrenAnimation[state],
+        }}>
+        {children}
+      </ModalChildren>
+    </ModalContainer>,
     document.body
   )
 }
