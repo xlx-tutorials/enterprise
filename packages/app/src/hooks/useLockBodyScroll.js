@@ -24,6 +24,13 @@ function useLockBodyScroll(isLock = false, { timeout } = {}) {
   useLayoutEffect(() => {
     clearTimeout(timerRef.current)
 
+    const overScroll =
+      window.innerHeight - document.documentElement.scrollHeight
+
+    if (overScroll <= 0) {
+      return
+    }
+
     if (isLock) {
       lock()
     } else if (timeout) {

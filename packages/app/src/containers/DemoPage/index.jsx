@@ -93,11 +93,9 @@ function DemoPage() {
 
       <Block
         className='modal'
-        style={
-          {
-            // height: 2000,
-          }
-        }>
+        style={{
+          height: 2000,
+        }}>
         <button type='button' onClick={toggle}>
           Show modal
         </button>
