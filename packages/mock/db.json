@@ -30,18 +30,42 @@
   "enterprises": [
     {
       "id": 1,
+      "companyName": "深圳市科技创新数据服务有限公司",
       "streetId": 1,
       "industryId": 1
     },
     {
       "id": 2,
+      "companyName": "北京市吴签工作室",
       "streetId": 2,
       "industryId": 2
     },
     {
       "id": 3,
+      "companyName": "深圳市科技创新数据服务有限公司",
       "streetId": 1,
       "industryId": 2
+    }
+  ],
+  "users": [
+    {
+      "id": 1,
+      "gender": "male",
+      "username": "Tony"
+    },
+    {
+      "id": 2,
+      "gender": "female",
+      "username": "Anne"
+    },
+    {
+      "id": 3,
+      "gender": "male",
+      "username": "John Doe"
+    },
+    {
+      "gender": "male",
+      "id": 4
     }
   ]
 }
