@@ -7,18 +7,18 @@ import { FilterLabel, FilterRow } from './components/styled'
 
 function FilterBlock() {
   const { bind: bindStreetsRadio, clear: clearStreetsRadio } = useRadio()
-  const [streets, setStreets] = useState([])
+  const [streetsData, setStreetsData] = useState([])
   const { bind: bindIndustiesRadio, clear: clearIndustriesRadio } = useRadio()
-  const [industies, setIndusties] = useState([])
+  const [industiesData, setIndustiesData] = useState([])
 
   useEffect(function fetchData() {
     fetch('http://localhost:5000/streets')
       .then((res) => res.json())
-      .then(setStreets)
+      .then(setStreetsData)
 
     fetch('http://localhost:5000/industries')
       .then((res) => res.json())
-      .then(setIndusties)
+      .then(setIndustiesData)
   }, [])
 
   return (
@@ -26,7 +26,7 @@ function FilterBlock() {
       <FilterRow>
         <FilterLabel>街道地区</FilterLabel>
         <Radio {...bindStreetsRadio()}>
-          {streets.map((option) => (
+          {streetsData.map((option) => (
             <Radio.Option key={option.id} value={option.name} noCircle>
               {option.name}
             </Radio.Option>
@@ -37,7 +37,7 @@ function FilterBlock() {
       <FilterRow>
         <FilterLabel>行业分类</FilterLabel>
         <Radio {...bindIndustiesRadio()}>
-          {industies.map((option) => (
+          {industiesData.map((option) => (
             <Radio.Option key={option.id} value={option.name} noCircle>
               {option.name}
             </Radio.Option>

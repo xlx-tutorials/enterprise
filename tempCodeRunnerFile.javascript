@@ -1,5 +1,9 @@
-const a = {name: 1}
+function formatUrl(url = '') {
+  const pattern = /^(\/)/
+  if (url.match(pattern)) {
+    return url
+  }
+  return `/${url}`
+}
 
-const b = [[a]].flat().find(item=>item===a)
-
-console.log( b === a )
+console.log( formatUrl('hello') )

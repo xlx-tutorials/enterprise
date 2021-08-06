@@ -51,53 +51,50 @@ const listItemCSS = themeCSS(
   `
 )
 
-function ListItem({ data, as: As = 'div', ...props }) {
+function ListItem({ data = {}, as: As = 'div', ...props }) {
   return (
     <As className='ListItem' css={listItemCSS} {...props}>
       <div className='left'>
         <Image src='https://picsum.photos/seed/2/300/300' size={110} />
       </div>
       <div className='right'>
-        <div className='title'>深圳市科技创新XX服务有限公司</div>
+        <div className='title'>{data.companyName}</div>
         <Labels className='labels'>
-          <Label>企业标签</Label>
-          <Label>企业标签</Label>
-          <Label>企业标签</Label>
-          <Label>企业标签</Label>
-          <Label>企业标签</Label>
-          <Label>企业标签</Label>
+          {data.tags?.map((item) => (
+            <Label key={item}>{item}</Label>
+          ))}
         </Labels>
         <div className='info'>
           <span>
-            法定代表人: <strong>王一三</strong>
+            法定代表人: <strong>{data.info.username}</strong>
           </span>
           <span>
-            法定代表人: <em>王一三</em>
+            联系人: <em>{data.info.contact}</em>
           </span>
           <span>
-            法定代表人: <em>王一三</em>
-          </span>
-        </div>
-        <div className='info'>
-          <span>
-            法定代表人: <strong>王一三</strong>
-          </span>
-          <span>
-            法定代表人: <strong>王一三</strong>
-          </span>
-          <span>
-            法定代表人: <strong>王一三</strong>
+            电话: <em>{data.info.phone}</em>
           </span>
         </div>
         <div className='info'>
           <span>
-            法定代表人: <strong>王一三</strong>
+            上年产值: <strong>{data.info.lastChanzhi}</strong>
           </span>
           <span>
-            法定代表人: <strong>王一三</strong>
+            上年营收: <strong>{data.info.lastYingshou}</strong>
           </span>
           <span>
-            法定代表人: <strong>王一三</strong>
+            参保人数: <strong>{data.info.canbao}</strong>
+          </span>
+        </div>
+        <div className='info'>
+          <span>
+            区域: <strong>{data.area}</strong>
+          </span>
+          <span>
+            园区/楼宇: <strong>{data.info.yuanquLouyu}</strong>
+          </span>
+          <span>
+            地址: <strong>{data.info.address}</strong>
           </span>
         </div>
       </div>

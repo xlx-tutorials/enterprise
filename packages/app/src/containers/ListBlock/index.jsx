@@ -1,10 +1,13 @@
 import { Link } from '@reach/router'
 import { Block } from 'components/Block'
+import { useFetch } from 'hooks/useFetch'
 import React from 'react'
 import ListItem from './components/ListItem'
 import { SortButton, SortContainer, SortLabel } from './components/styled'
 
 function ListBlock() {
+  const { data } = useFetch('/enterprises', { defaultData: [] })
+
   return (
     <Block className='ListBlock'>
       <SortContainer>
@@ -20,13 +23,9 @@ function ListBlock() {
         <SortButton>营业收入</SortButton>
       </SortContainer>
 
-      <ListItem as={Link} to='/detail' />
-      <ListItem as={Link} to='/detail' />
-      <ListItem as={Link} to='/detail' />
-      <ListItem as={Link} to='/detail' />
-      <ListItem as={Link} to='/detail' />
-      <ListItem as={Link} to='/detail' />
-      <ListItem as={Link} to='/detail' />
+      {data?.map((item) => (
+        <ListItem key={item.id} as={Link} to={`/${item.id}`} data={item} />
+      ))}
     </Block>
   )
 }
