@@ -3,6 +3,34 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.3.0](https://github.com/xlx-tutorials/enterprise/compare/v1.2.0...v1.3.0) (2021-08-06)
+
+
+### Bug Fixes
+
+* add Page padding 20vh ([a6458be](https://github.com/xlx-tutorials/enterprise/commit/a6458be379f0feb5c53bb85c78ce93ddc09e07e3))
+* lockScrollBody ([e2c8a44](https://github.com/xlx-tutorials/enterprise/commit/e2c8a44d5dcf37c8738926cb4f3c64d4e18c486d))
+* remove padding ([94652f5](https://github.com/xlx-tutorials/enterprise/commit/94652f5a454eb6f46aad55d495e5ed4daabfe1d8))
+
+
+### Features
+
+* add animation ([4cb3282](https://github.com/xlx-tutorials/enterprise/commit/4cb3282aa802d8aec2b4b7504723da0d7b261f17))
+* add Collapse ([8a08c9f](https://github.com/xlx-tutorials/enterprise/commit/8a08c9fa7740ed349b5bf695b1c6ff058325c84e))
+* add colorScheme ([37d6882](https://github.com/xlx-tutorials/enterprise/commit/37d68828fa06ab90865b1f2098fc66d883596a58))
+* add db.json ([c054cc1](https://github.com/xlx-tutorials/enterprise/commit/c054cc18cf4372a9e7ed04f542ef857f3bff2a93))
+* add handleTheme ([66dfafe](https://github.com/xlx-tutorials/enterprise/commit/66dfafe453a84251aa0d5b165fcbd9c23ab942af))
+* add Modal ([d1794e6](https://github.com/xlx-tutorials/enterprise/commit/d1794e6080568f405b2937355144d7aaac888ce0))
+* add PageTitle ([440da2b](https://github.com/xlx-tutorials/enterprise/commit/440da2bc2e65c97d3a9470c715ab45e1adedd492))
+* add react-transition-group to Modal ([5cf95d3](https://github.com/xlx-tutorials/enterprise/commit/5cf95d356c6de246b963e48193d27f5d36fbe5d1))
+* add Table ([d9e8686](https://github.com/xlx-tutorials/enterprise/commit/d9e86861af2e4dff611958182d44a72e2b8faab3))
+* add useTransition ([bd8af83](https://github.com/xlx-tutorials/enterprise/commit/bd8af8336a3bf3be38a6138c420e0d38f0321382))
+* optimize useLockBodyScroll ([0791fe1](https://github.com/xlx-tutorials/enterprise/commit/0791fe1d9d9c8ba80623c5992287db0e5798c28f))
+
+
+
+
+
 # [1.2.0](https://github.com/xlx-tutorials/enterprise/compare/v1.1.0...v1.2.0) (2021-08-01)
 
 
