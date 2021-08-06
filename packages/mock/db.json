@@ -31,18 +31,66 @@
     {
       "id": 1,
       "companyName": "深圳市科技创新数据服务有限公司",
+      "tags": ["企业标签1", "企业标签2", "企业标签3", "企业标签4", "企业标签5"],
+      "info": {
+        "username": "王一三",
+        "contact": "张三",
+        "phone": "0755-00010",
+        "lastChanzhi": "1000万",
+        "lastYingshou": "0000万",
+        "canbao": 100,
+        "area": "南山街道",
+        "yuanquLouyu": "园区名称",
+        "address": "深圳市罗湖区深大南达到200-10"
+      },
       "streetId": 1,
       "industryId": 1
     },
     {
       "id": 2,
       "companyName": "北京市吴签工作室",
+      "tags": [
+        "企业标签100",
+        "企业标签2",
+        "企业标签50",
+        "企业标签4",
+        "企业标签5"
+      ],
+      "info": {
+        "username": "王一三",
+        "contact": "张三",
+        "phone": "0755-00010",
+        "lastChanzhi": "1000万",
+        "lastYingshou": "0000万",
+        "canbao": 100,
+        "area": "南山街道",
+        "yuanquLouyu": "园区名称",
+        "address": "深圳市罗湖区深大南达到200-10"
+      },
       "streetId": 2,
       "industryId": 2
     },
     {
       "id": 3,
       "companyName": "深圳市科技创新数据服务有限公司",
+      "tags": [
+        "企业标签50",
+        "企业标签2",
+        "企业标签3",
+        "企业标签20",
+        "企业标签5"
+      ],
+      "info": {
+        "username": "王一三",
+        "contact": "张三",
+        "phone": "0755-00010",
+        "lastChanzhi": "1000万",
+        "lastYingshou": "0000万",
+        "canbao": 100,
+        "area": "南山街道",
+        "yuanquLouyu": "园区名称",
+        "address": "深圳市罗湖区深大南达到200-10"
+      },
       "streetId": 1,
       "industryId": 2
     }
