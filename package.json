@@ -6,7 +6,7 @@
   "author": "yokiyuqian@gmail.com <yokiyuqian@gmail.com>",
   "license": "MIT",
   "scripts": {
-    "preinstall": "husky install",
+    "prepare": "husky install",
     "new-version": "lerna version --conventional-commits",
     "start:app": "concurrently 'yarn workspace app run start' 'yarn workspace mock run start'",
     "build:app": "yarn workspace app run build",
@@ -14,6 +14,7 @@
   },
   "devDependencies": {
     "concurrently": "^6.2.0",
+    "create-strapi-app": "^4.0.0-next.3",
     "husky": "^7.0.1",
     "lerna": "^4.0.0",
     "lint-staged": "^11.1.1"

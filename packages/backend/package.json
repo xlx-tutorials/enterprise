@@ -1,7 +1,7 @@
 {
   "name": "backend",
   "private": true,
-  "version": "1.1.0",
+  "version": "0.1.0",
   "description": "A Strapi application",
   "scripts": {
     "develop": "strapi develop",
@@ -9,28 +9,27 @@
     "build": "strapi build",
     "strapi": "strapi"
   },
+  "devDependencies": {},
   "dependencies": {
-    "knex": "0.21.18",
-    "sqlite3": "5.0.0",
-    "strapi": "3.6.5",
-    "strapi-admin": "3.6.5",
-    "strapi-connector-bookshelf": "3.6.5",
-    "strapi-plugin-content-manager": "3.6.5",
-    "strapi-plugin-content-type-builder": "3.6.5",
-    "strapi-plugin-email": "3.6.5",
-    "strapi-plugin-i18n": "3.6.5",
-    "strapi-plugin-upload": "3.6.5",
-    "strapi-plugin-users-permissions": "3.6.5",
-    "strapi-utils": "3.6.5"
+    "@strapi/strapi": "4.0.0-next.3",
+    "@strapi/admin": "4.0.0-next.3",
+    "@strapi/utils": "4.0.0-next.3",
+    "@strapi/plugin-content-type-builder": "4.0.0-next.3",
+    "@strapi/plugin-content-manager": "4.0.0-next.3",
+    "@strapi/plugin-users-permissions": "4.0.0-next.3",
+    "@strapi/plugin-email": "4.0.0-next.3",
+    "@strapi/plugin-upload": "4.0.0-next.3",
+    "@strapi/plugin-i18n": "4.0.0-next.3",
+    "sqlite3": "5.0.2"
   },
   "author": {
     "name": "A Strapi developer"
   },
   "strapi": {
-    "uuid": "0b00a74b-a1ca-4938-ae68-048f744b3ce7"
+    "uuid": "b5c10f7e-7f50-4ac7-a5a2-3c9771918ca2"
   },
   "engines": {
-    "node": ">=10.16.0 <=14.x.x",
+    "node": ">=12.x.x <=14.x.x",
     "npm": "^6.0.0"
   },
   "license": "MIT"
