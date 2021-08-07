@@ -1,15 +1,16 @@
 import { Block } from 'components/Block'
 import Radio from 'components/Radio'
-import { useRadio } from 'components/Radio/hooks'
 import { Button } from 'containers/DemoPage/components/Button'
 import { useEffect, useState } from 'react'
 import { FilterLabel, FilterRow } from './components/styled'
+import { useFilterQuery } from './hooks/useFilterQuery'
 
 function FilterBlock() {
-  const { bind: bindStreetsRadio, clear: clearStreetsRadio } = useRadio()
   const [streetsData, setStreetsData] = useState([])
-  const { bind: bindIndustiesRadio, clear: clearIndustriesRadio } = useRadio()
+
   const [industiesData, setIndustiesData] = useState([])
+
+  const { query, setQuery, clear } = useFilterQuery()
 
   useEffect(function fetchData() {
     fetch('http://localhost:5000/streets')
@@ -25,9 +26,15 @@ function FilterBlock() {
     <Block className='Filter'>
       <FilterRow>
         <FilterLabel>街道地区</FilterLabel>
-        <Radio {...bindStreetsRadio()}>
+        <Radio
+          value={query.street}
+          onChange={(street) =>
+            setQuery({
+              street,
+            })
+          }>
           {streetsData.map((option) => (
-            <Radio.Option key={option.id} value={option.name} noCircle>
+            <Radio.Option key={option.id} value={option.id} noCircle>
               {option.name}
             </Radio.Option>
           ))}
@@ -36,9 +43,11 @@ function FilterBlock() {
 
       <FilterRow>
         <FilterLabel>行业分类</FilterLabel>
-        <Radio {...bindIndustiesRadio()}>
+        <Radio
+          value={query.industry}
+          onChange={(industry) => setQuery({ industry })}>
           {industiesData.map((option) => (
-            <Radio.Option key={option.id} value={option.name} noCircle>
+            <Radio.Option key={option.id} value={option.id} noCircle>
               {option.name}
             </Radio.Option>
           ))}
@@ -54,10 +63,7 @@ function FilterBlock() {
             marginLeft: 'auto',
             color: 'orangered',
           }}
-          onClick={() => {
-            clearStreetsRadio()
-            clearIndustriesRadio()
-          }}>
+          onClick={clear}>
           重置
         </Button>
       </FilterRow>

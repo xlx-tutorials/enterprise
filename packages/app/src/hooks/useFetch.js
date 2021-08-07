@@ -14,11 +14,14 @@ function formatUrl(url = '') {
 function useFetch(url, { defaultData } = {}) {
   const [data, setData] = useState(defaultData)
 
-  useEffect(function fetchListData() {
-    fetch(`${BASE_URL}${formatUrl(url)}`)
-      .then((res) => res.json())
-      .then(setData)
-  }, [])
+  useEffect(
+    function fetchListData() {
+      fetch(`${BASE_URL}${formatUrl(url)}`)
+        .then((res) => res.json())
+        .then(setData)
+    },
+    [url]
+  )
 
   return {
     data,
