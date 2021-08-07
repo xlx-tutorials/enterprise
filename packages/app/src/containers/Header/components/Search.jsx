@@ -1,8 +1,10 @@
 import { css } from '@emotion/react'
 import { useTheme } from 'contexts/ThemeProvider'
+import { useQueryParam } from 'use-query-params'
 
 function Search() {
   const { theme } = useTheme()
+  const [keyword, setKeyword] = useQueryParam('keyword')
 
   return (
     <div
@@ -38,7 +40,13 @@ function Search() {
           border-bottom-left-radius: 0;
         }
       `}>
-      <input type='text' />
+      <input
+        type='text'
+        defaultValue={keyword}
+        onChange={(ev) =>
+          setKeyword(ev.target.value ? ev.target.value : undefined)
+        }
+      />
       <button type='button'>搜一下</button>
     </div>
   )
