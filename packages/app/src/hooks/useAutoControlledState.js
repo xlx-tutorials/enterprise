@@ -1,5 +1,5 @@
 import { useState } from 'react'
-import useMountedEffect from './useMountedEffect'
+import useUpdateEffect from './useUpdateEffect'
 
 export default function useAutoControlledState({
   value,
@@ -15,7 +15,7 @@ export default function useAutoControlledState({
   let [state, setState] = useState(defaultValue)
 
   // trigger onChange when defaultValue state change
-  useMountedEffect(() => {
+  useUpdateEffect(() => {
     if (value === undefined) onChange(state)
   }, [state])
 

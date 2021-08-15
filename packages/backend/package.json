@@ -9,17 +9,20 @@
     "build": "strapi build",
     "strapi": "strapi"
   },
-  "devDependencies": {},
+  "devDependencies": {
+    "eslint-config-prettier": "^8.3.0",
+    "eslint-plugin-prettier": "^3.4.0"
+  },
   "dependencies": {
-    "@strapi/strapi": "4.0.0-next.3",
     "@strapi/admin": "4.0.0-next.3",
-    "@strapi/utils": "4.0.0-next.3",
-    "@strapi/plugin-content-type-builder": "4.0.0-next.3",
     "@strapi/plugin-content-manager": "4.0.0-next.3",
-    "@strapi/plugin-users-permissions": "4.0.0-next.3",
+    "@strapi/plugin-content-type-builder": "4.0.0-next.3",
     "@strapi/plugin-email": "4.0.0-next.3",
-    "@strapi/plugin-upload": "4.0.0-next.3",
     "@strapi/plugin-i18n": "4.0.0-next.3",
+    "@strapi/plugin-upload": "4.0.0-next.3",
+    "@strapi/plugin-users-permissions": "4.0.0-next.3",
+    "@strapi/strapi": "4.0.0-next.3",
+    "@strapi/utils": "4.0.0-next.3",
     "sqlite3": "5.0.2"
   },
   "author": {

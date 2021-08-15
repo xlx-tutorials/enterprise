@@ -1,6 +1,6 @@
 import { useEffect, useRef } from 'react'
 
-export default function useMountedEffect(callback, dependencies = []) {
+export default function useUpdateEffect(callback, dependencies = []) {
   const mountedRef = useRef(false)
 
   useEffect(function detectStateChange() {

@@ -66,24 +66,24 @@ function ListItem({ data = {}, as: As = 'div', ...props }) {
         </Labels>
         <div className='info'>
           <span>
-            法定代表人: <strong>{data.info.username}</strong>
+            法定代表人: <strong>{data.info?.username}</strong>
           </span>
           <span>
-            联系人: <em>{data.info.contact}</em>
+            联系人: <em>{data.info?.contact}</em>
           </span>
           <span>
-            电话: <em>{data.info.phone}</em>
+            电话: <em>{data.info?.phone}</em>
           </span>
         </div>
         <div className='info'>
           <span>
-            上年产值: <strong>{data.info.lastChanzhi}</strong>
+            上年产值: <strong>{data.info?.lastChanzhi}</strong>
           </span>
           <span>
-            上年营收: <strong>{data.info.lastYingshou}</strong>
+            上年营收: <strong>{data.info?.lastYingshou}</strong>
           </span>
           <span>
-            参保人数: <strong>{data.info.canbao}</strong>
+            参保人数: <strong>{data.info?.canbao}</strong>
           </span>
         </div>
         <div className='info'>
@@ -91,10 +91,10 @@ function ListItem({ data = {}, as: As = 'div', ...props }) {
             区域: <strong>{data.area}</strong>
           </span>
           <span>
-            园区/楼宇: <strong>{data.info.yuanquLouyu}</strong>
+            园区/楼宇: <strong>{data.info?.yuanquLouyu}</strong>
           </span>
           <span>
-            地址: <strong>{data.info.address}</strong>
+            地址: <strong>{data.info?.address}</strong>
           </span>
         </div>
       </div>

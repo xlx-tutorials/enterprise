@@ -15,7 +15,7 @@ function Routes() {
   return (
     <Router id='router' primary={false}>
       <HomePage path='/' />
-      <DetailPage path='/detail'>
+      <DetailPage path='/:id'>
         <Jibenxinxi path='jibenxinxi' />
         <Caiwuqingkuang path='caiwuqingkuang' />
         <Redirect from='/' to='jibenxinxi' noThrow />

@@ -10,7 +10,9 @@ function ListBlock() {
   const { data } = useFetchListData()
   const [keyword] = useQueryParam('keyword')
 
-  const filteredData = data.filter((item) => item.companyName.includes(keyword))
+  const filteredData = keyword
+    ? data.filter((item) => item.companyName.includes(keyword))
+    : data
 
   return (
     <Block className='ListBlock'>

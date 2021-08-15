@@ -8,6 +8,8 @@
     "start": "json-server ./db.json --watch -p 5000"
   },
   "devDependencies": {
+    "eslint-config-prettier": "^8.3.0",
+    "eslint-plugin-prettier": "^3.4.0",
     "json-server": "^0.16.3"
   }
 }
